@@ -1,0 +1,61 @@
+SELAMAT DATANG DI INFORMART JAYA
+---------------------------------
+
+Pada tugas mata kuliah PWI (Pemrograman Web dan Internet), kelompok
+kami mendapatkan salah satu project yaitu "Pembuatan Aplikasi Web Kasir".
+Dan nama aplikasi web kasir ini kami beri dengan nama Kasir Tokoku yang berada
+pada sebuah swalayan yang bernama INFORMART JAYA yang berada di 
+Jalan Prof. Sudarto Gedung E lantai 3 tepatnya di Kampus Universitas Diponegoro
+Fakultas Sains Dan Matematika, Jurusan Informatika
+
+Kasir Tokoku INFORMART JAYA, terdiri dari beberapa fitur, yaitu :
+1. Gerai / Dashboard
+2. Kasir ( Mesin Kasir - Setoran Kasir )
+3. Manajer (Pembelian - Stok - Harga Barang - Penjualan - Koreksi - Info Toko)
+4. User ( Profil - Ubah Password - Rekap Setoran - Tambah User )
+5. Keluar
+
+Dalam pembuatan Aplikasi Web ini, kami menggunakan bahasa pemrograman 
+MySQL dan PHP. Berikut Penjelasan singkat tentang Fitur yang kami buat
+
+1. Gerai / Dashboard
+   -> Berfungsi sebagai home dari aplikasi web kasir ini setelah login
+	sebelum masuk ke menu kasir
+2. Kasir ( Mesin Kasir - Setoran Kasir )
+   -> Tampilan Mesin kasir terdapat 3 kolom display. Kolom pertama untuk Keranjang
+	yaitu daftar barang yang dibeli. Kolom kedua sebagai Scanner toko yaitu untuk
+	mencari berdasarkan value atau barcode barang dan nama barang itu sendiri.
+	Scanner itu menggunakan autocomplete yang berfungsi untuk mempercepat kita
+	untuk mencari berdasarkan informasi yang kita inginkan
+   -> Tampilan Setoran Kasir berguna untuk mencatat penjualan yang dilakukan sampai
+	akhir kasir sebelum melakukan setoran. Kasir akan memasukkan jumlah setoran
+	sesuai dengan kode kasir dan tanggal setor setelah menghitung uang laci.
+	
+3. Manajer (Pembelian - Stok - Harga Barang - Penjualan - Koreksi - Info Toko)
+   -> Berfungsi untuk melakukan pengecekkan suatu barang yang dibeli atau dijual.
+	Selain itu Manajer juga dapat melakukan penyetokkan suatu barang yang sudah
+	mau habis terjual. Dan Manajer ini juga mampu memberi koreksi terhadap apa 
+	yang salah atau benar dan berfungsi juga untuk memberikan info toko
+4. User ( Profil - Ubah Password - Rekap Setoran - Tambah User )
+   -> Berfungsi untuk dapat mengubah suatu profil , mengubah password dan melakukan
+	rekapan setoran dari hasil penjualan sehari. Selain itu juga user dapat
+	melakukan penambahan data user jika ada yang ingin menjadi user dari sebuah
+	INFORMART JAYA Kasir Tokoku
+5. Keluar
+   ->Fungsi akhir dari aplikasi web Kasir Tokoku jika semua keinginan sudah terpenuhi
+
+
+
+Kelompok ini terdiri dari beberapa anggota, yaitu :
+1. Sanggam Andreas Harahap		24010313120018
+2. Dhimas Nandista			24010313120015
+3. Randy Ichsan Adlis			24010313120006
+4. Ivone Ayu Puspita			24010313120051
+5. Lidya Monica Febrina Tambunan	24010313120009
+6. Tria Nur Laili			24010313130060
+7. Trino Hutasoit			24010312120006
+
+
+ 				 ------------------------
+				|Sekian Dan Terima Kasih |
+				 ------------------------

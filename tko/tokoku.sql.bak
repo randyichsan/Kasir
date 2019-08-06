@@ -1,0 +1,242 @@
+-- phpMyAdmin SQL Dump
+-- version 3.4.5
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Waktu pembuatan: 03. Desember 2012 jam 02:44
+-- Versi Server: 5.5.16
+-- Versi PHP: 5.3.8
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `tokoku`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `barangbeli`
+--
+
+CREATE TABLE IF NOT EXISTS `barangbeli` (
+  `kdbrg` varchar(50) NOT NULL,
+  `nmbrg` varchar(50) NOT NULL,
+  `hrbbrg` int(100) NOT NULL,
+  `qtybrg` int(100) NOT NULL,
+  `totbeli` int(100) NOT NULL,
+  `tglbeli` varchar(50) NOT NULL,
+  `opt` int(100) NOT NULL AUTO_INCREMENT,
+  UNIQUE KEY `opt` (`opt`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `barangjual`
+--
+
+CREATE TABLE IF NOT EXISTS `barangjual` (
+  `nom` int(10) NOT NULL AUTO_INCREMENT,
+  `kdbrg` varchar(50) NOT NULL,
+  `nmbrg` varchar(50) NOT NULL,
+  `hrbrg` int(100) NOT NULL,
+  `bybrg` int(100) NOT NULL,
+  `tobrg` int(100) NOT NULL,
+  `kdjual` varchar(100) NOT NULL,
+  `tgljual` varchar(100) NOT NULL,
+  `setor` int(100) NOT NULL,
+  `fus` enum('0','1') NOT NULL DEFAULT '0',
+  UNIQUE KEY `nom` (`nom`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `barangtoko`
+--
+
+CREATE TABLE IF NOT EXISTS `barangtoko` (
+  `kdbrg` varchar(50) NOT NULL,
+  `nmbrg` varchar(50) NOT NULL,
+  `hrbrg` int(100) NOT NULL,
+  `promo` varchar(50) NOT NULL,
+  `opt` int(10) NOT NULL,
+  PRIMARY KEY (`kdbrg`),
+  UNIQUE KEY `nmbrg` (`nmbrg`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `keranjang`
+--
+
+CREATE TABLE IF NOT EXISTS `keranjang` (
+  `no` int(50) NOT NULL AUTO_INCREMENT,
+  `kdbrg` int(50) NOT NULL,
+  `nmbrg` varchar(50) NOT NULL,
+  `hrbrg` int(50) NOT NULL,
+  `bybrg` int(50) NOT NULL,
+  `tobrg` int(50) NOT NULL,
+  `idksr` varchar(50) NOT NULL,
+  `kdjual` varchar(50) NOT NULL,
+  `tgljual` varchar(100) NOT NULL,
+  `onksr` enum('Y','N') NOT NULL DEFAULT 'Y',
+  KEY `no` (`no`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `menutoko`
+--
+
+CREATE TABLE IF NOT EXISTS `menutoko` (
+  `id` tinyint(3) NOT NULL,
+  `id_menu` tinyint(3) NOT NULL,
+  `nama_menu` varchar(50) NOT NULL,
+  `img_menu` varchar(100) NOT NULL,
+  `url_menu` varchar(100) NOT NULL,
+  `level_menu` varchar(10) NOT NULL,
+  `opt_menu` varchar(50) NOT NULL,
+  `event` varchar(100) NOT NULL,
+  `od_menu` tinyint(3) NOT NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `menutoko`
+--
+
+INSERT INTO `menutoko` (`id`, `id_menu`, `nama_menu`, `img_menu`, `url_menu`, `level_menu`, `opt_menu`, `event`, `od_menu`) VALUES
+(1, 0, 'Gerai', 'img/places.png', 'meja.php', 'AU', 'Beranda Toko', '', 1),
+(2, 0, 'Kasir', 'img/basket.png', '#', 'AU', 'Kasir Toko', '', 2),
+(3, 0, 'Manajer', 'img/user_suit.png', '#', 'A', 'Manajer Toko', '', 3),
+(4, 0, 'User', 'img/user_go.png', '#', 'AU', 'User Toko', '#', 4),
+(5, 0, 'Keluar', 'img/exit.png', 'keluartoko.php', 'AU', 'Keluar', 'onClick="return confirm(''Ingin Keluar?'')"', 6),
+(6, 3, 'Harga Barang', 'img/money_dollar.png', 'meja.php?kertas=harga', 'AU', 'harga', '', 3),
+(7, 2, 'Setoran Kasir', 'img/coins_in_hand.png', 'meja.php?kertas=setoran', 'AU', 'setoran', '', 3),
+(8, 3, 'Koreksi', 'img/price_comparison.png', '#', 'A', 'koreksi', '', 5),
+(9, 3, 'Stok', 'img/carton.png', 'meja.php?kertas=stok', 'A', 'stok', '', 2),
+(10, 3, 'Penjualan', 'img/shopping_basket.png', 'meja.php?kertas=penjualan', 'A', 'penjualan', '', 4),
+(11, 3, 'Pembelian', 'img/shopping_cart.png', 'meja.php?kertas=pembelian', 'A', 'pembelian', '', 1),
+(12, 4, 'Profil', 'img/account.png', 'meja.php?kertas=profil', 'AU', 'profil', '', 1),
+(13, 4, 'Tambah User', 'img/user_add.png', 'meja.php?kertas=tambah_user', 'A', 'tambah_user', '', 4),
+(14, 4, 'Ubah Password', 'img/change_password.png', 'meja.php?kertas=ubah_password', 'AU', 'ubah_password', '', 2),
+(15, 4, 'Rekap Setoran', 'img/company_generosity.png', 'meja.php?kertas=rekap_setoran', 'AU', 'rekap_setoran', '', 3),
+(16, 2, 'Mesin Kasir', 'img/cash_register.png', 'meja.php?kertas=mesin_kasir', 'AU', 'mesin_kasir', '', 1),
+(17, 18, 'Info Program', 'img/php.png', 'meja.php?kertas=info_program', 'AU', 'info_program', '', 3),
+(18, 3, 'Info Toko', 'img/safebox.png', '#', 'A', 'toko', '', 6),
+(20, 18, 'Setelan Toko', 'img/street_stall.png', 'meja.php?kertas=info_toko', 'A', 'info_toko', '', 1),
+(21, 18, 'Backup Data', 'img/database_save.png', 'tko/backuptoko.php', 'A', 'backup', '', 2),
+(22, 8, 'Cek Stok', 'img/package.png', 'meja.php?kertas=cstok', 'A', 'cstok', '', 1),
+(23, 8, 'Setoran', 'img/total_plan_cost.png', 'meja.php?kertas=setor', 'A', 'setor', '', 2),
+(24, 8, 'Laba-rugi', 'img/money_bag.png', 'meja.php?kertas=laru', 'A', 'laru', '', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `setoran`
+--
+
+CREATE TABLE IF NOT EXISTS `setoran` (
+  `kode_kasir` varchar(100) NOT NULL,
+  `tgl_jual` varchar(50) NOT NULL,
+  `tgl_setor` varchar(50) NOT NULL,
+  `jum_jual` int(50) NOT NULL,
+  `jum_setor` int(100) NOT NULL,
+  `selisih` int(50) NOT NULL,
+  `setor` int(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `stoktoko`
+--
+
+CREATE TABLE IF NOT EXISTS `stoktoko` (
+  `kdbrg` varchar(50) NOT NULL,
+  `nmbrg` varchar(100) NOT NULL,
+  `stlama` int(100) NOT NULL,
+  `tglama` varchar(100) NOT NULL,
+  `stbaru` int(100) NOT NULL,
+  `tgbaru` varchar(100) NOT NULL,
+  `tstok` int(100) NOT NULL,
+  `nstok` int(10) NOT NULL COMMENT 'stok real (nyata) di toko',
+  `tgl_nstok` varchar(11) NOT NULL,
+  `jbk` varchar(100) NOT NULL COMMENT 'status antara tstok dan nstok +/-',
+  `jhk` varchar(100) NOT NULL,
+  PRIMARY KEY (`kdbrg`),
+  UNIQUE KEY `nmbrg` (`nmbrg`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `toko`
+--
+
+CREATE TABLE IF NOT EXISTS `toko` (
+  `toko` varchar(50) NOT NULL,
+  `alamat` varchar(100) NOT NULL,
+  `telepon` varchar(50) NOT NULL,
+  `opt1` varchar(50) NOT NULL,
+  `opt2` int(10) NOT NULL,
+  UNIQUE KEY `telepon` (`telepon`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `toko`
+--
+
+INSERT INTO `toko` (`toko`, `alamat`, `telepon`, `opt1`, `opt2`) VALUES
+('BERKAH JAYA', 'Jl. Rahmat Alam No. 23 Bogor', '(0251) 6354221', '0', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `usertoko`
+--
+
+CREATE TABLE IF NOT EXISTS `usertoko` (
+  `id_user` varchar(50) NOT NULL,
+  `nama_user` varchar(50) NOT NULL,
+  `ksandi` varchar(100) NOT NULL,
+  `id_sesi` varchar(100) NOT NULL,
+  `level_user` enum('A','U') NOT NULL DEFAULT 'U',
+  `opt_user` varchar(50) NOT NULL,
+  UNIQUE KEY `id_user` (`id_user`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `usertoko`
+--
+
+INSERT INTO `usertoko` (`id_user`, `nama_user`, `ksandi`, `id_sesi`, `level_user`, `opt_user`) VALUES
+('123', 'Admin', '21232f297a57a5a743894a0e4a801fc3', 'clk3d9mepeku3f5jtev35ppof2', 'A', 'ADM'),
+('222', 'Manager', '1d0258c2440a8d19e716292b231e3190', 'khkkutii88k6fg0m2eh1jk7pc4', 'A', 'MGR'),
+('500', 'Kasir', 'c7911af3adbd12a035b289556d96470a', 'kpp75kuuuabgselgl1uv29mgf3', 'U', 'KSR');
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `barangtoko`
+--
+ALTER TABLE `barangtoko`
+  ADD CONSTRAINT `barangtoko_ibfk_1` FOREIGN KEY (`kdbrg`) REFERENCES `stoktoko` (`kdbrg`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `barangtoko_ibfk_2` FOREIGN KEY (`nmbrg`) REFERENCES `stoktoko` (`nmbrg`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
